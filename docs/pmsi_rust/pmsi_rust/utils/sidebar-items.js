@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["get_champ_longueur","get_champ_nom","get_champ_position","get_champ_type","get_extension_from_filename","get_formats","get_vec_type","map_extension"],"static":["FORMATS"]};
