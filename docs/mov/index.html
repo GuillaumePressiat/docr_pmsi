@@ -4,15 +4,57 @@
   <style>
     body {
       background-color: rgb(62, 56, 55);
-      padding: 20px;
+      padding: 30px;
     }
   </style>
 
+<script type="text/javascript">
+  // 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '90%',
+        width: '90%',
+        videoId: 'K_AdIs4Hcf8',
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+    player.setPlaybackRate(1.1);
+    event.target.setPlaybackQuality('hd1080');
+    event.target.playVideo();
+}
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.BUFFERING) {
+        event.target.setPlaybackQuality('hd1080');
+    }
+}
+
+</script>
 <body>
+
 <center>
-<video controls="controls" height="80%" name="pmsi_rust_0">
-  <source src="https://youtu.be/K_AdIs4Hcf8">
-</video>
+<div id="player"></div>
+
+<!-- <iframe 
+        width="87%" height="90%" 
+        src="https://www.youtube.com/embed/K_AdIs4Hcf8?vq=hd1080" 
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+ -->
 </center>
 </body>
 </html>
