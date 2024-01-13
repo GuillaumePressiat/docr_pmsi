@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["configure_the_environment","pmsi_read_lines","write_to_somefile"]};

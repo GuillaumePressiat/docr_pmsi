@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["main"],"mod":["cli","pmsi_rust"]};
+window.SIDEBAR_ITEMS = {"mod":["cli","core"]};
