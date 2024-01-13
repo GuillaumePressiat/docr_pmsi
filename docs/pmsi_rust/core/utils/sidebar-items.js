@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["formats","io","parse_fwf"]};
+window.SIDEBAR_ITEMS = {"fn":["parse_pmsi_fwf"],"mod":["formats","io"]};
