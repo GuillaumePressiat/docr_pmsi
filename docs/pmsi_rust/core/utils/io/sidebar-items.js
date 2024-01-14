@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["configure_the_environment","pmsi_read_lines","write_to_somefile"]};
+window.SIDEBAR_ITEMS = {"fn":["configure_the_environment","hashmap_collect","pmsi_read_lines","write_dataframe_to_somefile","write_hashmap_to_somefiles"]};
