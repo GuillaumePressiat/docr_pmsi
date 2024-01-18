@@ -9,11 +9,18 @@
                      annee.to_owned(), 
                      extension.to_owned()).unwrap();
  
-<span class="kw">let </span>out: String = <span class="string">&quot;~/Desktop/290000017.2022.12.ano.parquet&quot;</span>.to_string();
+<span class="kw">let </span>out_parquet: String = <span class="string">&quot;~/Desktop/290000017.2022.12.ano.parquet&quot;</span>.to_string();
+write_dataframe_to_somefile(ano.clone(), out_parquet);
 
- 
-write_dataframe_to_somefile(ano, out);</code></pre></div>
+<span class="kw">let </span>out_csv: String = <span class="string">&quot;~/Desktop/290000017.2022.12.ano.csv&quot;</span>.to_string();
+write_dataframe_to_somefile(ano.clone(), out_csv);
+
+<span class="kw">let </span>out_json: String = <span class="string">&quot;~/Desktop/290000017.2022.12.ano.json&quot;</span>.to_string();
+write_dataframe_to_somefile(ano, out_json);
+</code></pre></div>
 <div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Desktop/290000017.2022.12.ano.parquet
+Écriture de ~/Desktop/290000017.2022.12.ano.csv
+Écriture de ~/Desktop/290000017.2022.12.ano.json
 </code></pre></div><h4 id="exemple-de-lecture-de-fichiers-rss-et-écriture-en-parquet"><a href="#exemple-de-lecture-de-fichiers-rss-et-écriture-en-parquet">Exemple de lecture de fichiers RSS et écriture en .parquet</a></h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">&quot;~/Documents/data/mco/290000017.2022.12.rss.ini.txt&quot;</span>;
 <span class="kw">let </span>annee = <span class="string">&quot;2022&quot;</span>;
