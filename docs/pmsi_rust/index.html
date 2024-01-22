@@ -124,13 +124,23 @@ et les redondances d’appels à des objets toujours identiques en réalité</p>
 <h3 id="définir-un-noyau-de-paramètres"><a href="#définir-un-noyau-de-paramètres">Définir un noyau de paramètres</a></h3>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
 
-<span class="kw">let </span>noyau_p = Noyau {
+<span class="kw">let </span><span class="kw-2">mut </span>noyau_p = Noyau {
     finess: <span class="string">"290000017"</span>.to_string(),
     annee: <span class="number">2022</span>,
     mois: <span class="number">12</span>,
     path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
     n_rows: <span class="prelude-val">None</span>,
-};</code></pre></div>
+};
+
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));</code></pre></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="string">"~/Documents/data/mco/290000017.2022.12.rsa"</span></code></pre></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code>noyau_p.annee = <span class="number">2021</span>;
+noyau_p.mois = <span class="number">11</span>;
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));</code></pre></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="string">"~/Documents/data/mco/290000017.2021.11.rsa"</span></code></pre></div>
 <h4 id="lire-un-fichier-pmsi-dun-noyau"><a href="#lire-un-fichier-pmsi-dun-noyau">Lire un fichier PMSi d’un noyau</a></h4>
 <p>Exemple</p>
 
@@ -146,4 +156,4 @@ et les redondances d’appels à des objets toujours identiques en réalité</p>
 <span class="kw">let </span>rsa = noyau_p.parse_rsa().unwrap();
 
 <span class="macro">println!</span>(<span class="string">"{:?}"</span>, hashmap_collect(rsa));</code></pre></div>
-</div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2><ul class="item-table"><li><div class="item-name"><a class="mod" href="cli/index.html" title="mod pmsi_rust::cli">cli</a></div><div class="desc docblock-short">pmsi_rust en ligne de commande</div></li><li><div class="item-name"><a class="mod" href="core/index.html" title="mod pmsi_rust::core">core</a></div><div class="desc docblock-short">Exemple de lecture de fichiers RSS et écriture en .parquet</div></li></ul></section></div></main></body></html>
+</div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2><ul class="item-table"><li><div class="item-name"><a class="mod" href="cli/index.html" title="mod pmsi_rust::cli">cli</a></div><div class="desc docblock-short">pmsi_rust en ligne de commande</div></li><li><div class="item-name"><a class="mod" href="core/index.html" title="mod pmsi_rust::core">core</a></div><div class="desc docblock-short">Cœur de pmsi_rust</div></li></ul></section></div></main></body></html>
