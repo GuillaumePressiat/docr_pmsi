@@ -17,12 +17,12 @@ et écrit un fichier correspondant</p>
 <span class="kw">let </span>ano = parse_pmsi(file_to_read.to_owned(),
                      annee.to_owned(),
                      extension.to_owned(),
-                     <span class="string">"mco"</span>.to_owned())
+                     <span class="string">"mco"</span>.to_owned(), <span class="prelude-val">None</span>,)
                      .unwrap();
 
-<span class="kw">let </span>out: String = <span class="string">"~/Desktop/290000017.2022.12.ano.parquet"</span>.to_string();
+<span class="kw">let </span>out: String = <span class="string">"~/Documents/tmp/290000017.2022.12.ano.parquet"</span>.to_string();
 
 
 write_dataframe_to_somefile(ano, out);</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Desktop/290000017.2022.12.ano.parquet
+<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.ano.parquet
 </code></pre></div></div></details></section></div></main></body></html>

@@ -8,18 +8,19 @@
 <span class="kw">use </span>pmsi_rust::core::utils::io::write_hashmap_to_somefiles;
 
 <span class="kw">let </span>rum = parse_rum(file_to_read.to_owned(),
-                    annee.to_owned()).unwrap();
+                    annee.to_owned(),
+                    <span class="prelude-val">None</span>).unwrap();
 
-<span class="kw">let </span>out_patterned: String = <span class="string">"~/Desktop/290000017.2022.12.rum_****.parquet"</span>.to_string();
+<span class="kw">let </span>out_patterned: String = <span class="string">"~/Documents/tmp/290000017.2022.12.rum_****.parquet"</span>.to_string();
 
 
 write_hashmap_to_somefiles(rum.clone(), out_patterned);
 
 <span class="macro">println!</span>(<span class="string">"{:?}"</span>, hashmap_collect(rum));</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Desktop/290000017.2022.12.rum_das.parquet
-Écriture de ~/Desktop/290000017.2022.12.rum_rum.parquet
-Écriture de ~/Desktop/290000017.2022.12.rum_dad.parquet
-Écriture de ~/Desktop/290000017.2022.12.rum_actes.parquet
+<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.rum_das.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rum_rum.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rum_dad.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rum_actes.parquet
 </code></pre></div><h4 id="exemple-de-lecture-des-fichiers-rsa-et-écriture-en-parquet"><a href="#exemple-de-lecture-des-fichiers-rsa-et-écriture-en-parquet">Exemple de lecture des fichiers RSA et écriture en .parquet</a></h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">"~/Documents/data/mco/290000017.2022.12.rsa"</span>;
 <span class="kw">let </span>annee = <span class="string">"2022"</span>;
@@ -29,16 +30,17 @@ write_hashmap_to_somefiles(rum.clone(), out_patterned);
 <span class="kw">use </span>pmsi_rust::core::utils::io::write_hashmap_to_somefiles;
 
 <span class="kw">let </span>rsa = parse_rsa(file_to_read.to_owned(),
-                    annee.to_owned()).unwrap();
+                    annee.to_owned(),
+                    <span class="prelude-val">None</span>).unwrap();
 
-<span class="kw">let </span>out_patterned: String = <span class="string">"~/Desktop/290000017.2022.12.rsa_****.parquet"</span>.to_string();
+<span class="kw">let </span>out_patterned: String = <span class="string">"~/Documents/tmp/290000017.2022.12.rsa_****.parquet"</span>.to_string();
 
 
 write_hashmap_to_somefiles(rsa.clone(), out_patterned);
 
 <span class="macro">println!</span>(<span class="string">"{:?}"</span>, hashmap_collect(rsa));</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Desktop/290000017.2022.12.rsa_das.parquet
-Écriture de ~/Desktop/290000017.2022.12.rsa_um.parquet
-Écriture de ~/Desktop/290000017.2022.12.rsa_rsa.parquet
-Écriture de ~/Desktop/290000017.2022.12.rsa_actes.parquet
+<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.rsa_das.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rsa_um.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rsa_rsa.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rsa_actes.parquet
 </code></pre></div></div></details><h2 id="functions" class="section-header"><a href="#functions">Functions</a></h2><ul class="item-table"><li><div class="item-name"><a class="fn" href="fn.parse_rsa.html" title="fn pmsi_rust::core::mco::parse_rsa">parse_rsa</a></div><div class="desc docblock-short">Fonction de découpage des RSA</div></li><li><div class="item-name"><a class="fn" href="fn.parse_rum.html" title="fn pmsi_rust::core::mco::parse_rum">parse_rum</a></div><div class="desc docblock-short">Fonction de découpage des RSS / RUM</div></li></ul></section></div></main></body></html>

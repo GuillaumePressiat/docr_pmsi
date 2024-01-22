@@ -18,18 +18,50 @@ et les redondances d’appels à des objets toujours identiques en réalité</p>
     path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
     n_rows: <span class="prelude-val">None</span>,
 };</code></pre></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
+
+<span class="kw">let </span>noyau_p = Noyau {
+    finess: <span class="string">"290000017"</span>.to_string(),
+    annee: <span class="number">2022</span>,
+    mois: <span class="number">12</span>,
+    path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
+    n_rows: <span class="prelude-val">Some</span>(<span class="number">1</span>) <span class="comment">// ne lire qu'une ligne
+    // n_rows: Some(1000) // ne lire que 1000 lignes
+</span>};</code></pre></div>
 <h3 id="produire-le-chemin-de-fichiers-pmsi-à-partir-du-noyau"><a href="#produire-le-chemin-de-fichiers-pmsi-à-partir-du-noyau">Produire le chemin de fichiers PMSI à partir du noyau</a></h3>
 <p>Exemples</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));
-<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"ano"</span>.to_string()));</code></pre></div>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="string">"~/Documents/data/mco/290000017.2022.12.rsa"
-"~/Documents/data/mco/290000017.2022.12.ano"</span></code></pre></div>
-<h3 id="lire-un-fichier-pmsi"><a href="#lire-un-fichier-pmsi">Lire un fichier PMSi</a></h3>
+<span class="kw">let </span>noyau_p = Noyau {
+    finess: <span class="string">"290000017"</span>.to_string(),
+    annee: <span class="number">2022</span>,
+    mois: <span class="number">12</span>,
+    path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
+    n_rows: <span class="prelude-val">Some</span>(<span class="number">1</span>) <span class="comment">// ne lire qu'une ligne
+    // n_rows: Some(1000) // ne lire que 1000 lignes
+</span>};
+
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"ano"</span>.to_string()));</code></pre></div>
+<div class="example-wrap"><pre class="language-bash"><code>&quot;~/Documents/data/mco/290000017.2022.12.rsa&quot;
+&quot;~/Documents/data/mco/290000017.2022.12.ano&quot;
+</code></pre></div><h3 id="lire-un-fichier-pmsi"><a href="#lire-un-fichier-pmsi">Lire un fichier PMSi</a></h3>
 <p>Exemple</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>ano = noyau_p
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
+
+<span class="kw">let </span>noyau_p = Noyau {
+    finess: <span class="string">"290000017"</span>.to_string(),
+    annee: <span class="number">2022</span>,
+    mois: <span class="number">12</span>,
+    path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
+    n_rows: <span class="prelude-val">Some</span>(<span class="number">1</span>) <span class="comment">// ne lire qu'une ligne
+    // n_rows: Some(1000) // ne lire que 1000 lignes
+</span>};
+
+<span class="kw">let </span>ano = noyau_p
  .parse_pmsi(<span class="kw-2">&amp;</span><span class="string">"ano"</span>.to_string(), <span class="string">"mco"</span>.to_string())
  .unwrap();
 
@@ -37,7 +69,18 @@ et les redondances d’appels à des objets toujours identiques en réalité</p>
 <h3 id="lire-un-fichier-rsa"><a href="#lire-un-fichier-rsa">Lire un fichier RSA</a></h3>
 <p>Exemple</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::utils::io::hashmap_collect;
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
+
+<span class="kw">let </span>noyau_p = Noyau {
+    finess: <span class="string">"290000017"</span>.to_string(),
+    annee: <span class="number">2022</span>,
+    mois: <span class="number">12</span>,
+    path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
+    <span class="comment">//n_rows: Some(1) // ne lire qu'une ligne
+    </span>n_rows: <span class="prelude-val">Some</span>(<span class="number">1000</span>) <span class="comment">// ne lire que 1000 lignes
+</span>};
+
+<span class="kw">use </span>pmsi_rust::core::utils::io::hashmap_collect;
 <span class="kw">let </span>rsa = noyau_p.parse_rsa().unwrap();
 
 <span class="macro">println!</span>(<span class="string">"{:?}"</span>, hashmap_collect(rsa));</code></pre></div>

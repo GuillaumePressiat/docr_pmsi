@@ -17,7 +17,7 @@
 
 <span class="kw">use </span>pmsi_rust::core::utils::parse_pmsi_fwf;
 <span class="kw">use </span>pmsi_rust::core::utils::io::pmsi_read_lines;
-<span class="kw">let </span>df = pmsi_read_lines(myfile.to_owned()).expect(<span class="string">"Problème à la lecture du fichier"</span>);
+<span class="kw">let </span>df = pmsi_read_lines(myfile.to_owned(), <span class="prelude-val">None</span>).expect(<span class="string">"Problème à la lecture du fichier"</span>);
 
 parse_pmsi_fwf(df,
                annee.to_owned(),

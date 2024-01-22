@@ -16,13 +16,13 @@ et écrit un fichier correspondant</p>
 <span class="kw">use </span>pmsi_rust::core::mco::parse_rum;
 <span class="kw">use </span>pmsi_rust::core::utils::io::write_hashmap_to_somefiles;
 <span class="kw">let </span>rum = parse_rum(file_to_read.to_owned(),
-                    annee.to_owned()).unwrap();
+                    annee.to_owned(), <span class="prelude-val">None</span>).unwrap();
 
-<span class="kw">let </span>out_patterned: String = <span class="string">"~/Desktop/290000017.2022.12.rum_****.parquet"</span>.to_string();
+<span class="kw">let </span>out_patterned: String = <span class="string">"~/Documents/tmp/290000017.2022.12.rum_****.parquet"</span>.to_string();
 
 write_hashmap_to_somefiles(rum, out_patterned);</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Desktop/290000017.2022.12.rum_das.parquet
-Écriture de ~/Desktop/290000017.2022.12.rum_rum.parquet
-Écriture de ~/Desktop/290000017.2022.12.rum_dad.parquet
-Écriture de ~/Desktop/290000017.2022.12.rum_actes.parquet
+<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.rum_das.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rum_rum.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rum_dad.parquet
+Écriture de ~/Documents/tmp/290000017.2022.12.rum_actes.parquet
 </code></pre></div></div></details></section></div></main></body></html>
