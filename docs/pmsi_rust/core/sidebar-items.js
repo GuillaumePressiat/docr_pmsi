@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["parse_pmsi"],"mod":["mco","noyau_pmsi","utils"]};
+window.SIDEBAR_ITEMS = {"fn":["parse_pmsi","parse_tra"],"mod":["chemin_pmsi","mco","noyau_pmsi","pmsi_frames","utils"]};

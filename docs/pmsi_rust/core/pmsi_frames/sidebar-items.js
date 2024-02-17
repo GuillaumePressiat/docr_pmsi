@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":["PmsiFrame","PmsiLazyFrame"],"type":["PmsiDataFrames","PmsiLazyFrames"]};
