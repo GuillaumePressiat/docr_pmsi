@@ -25,4 +25,25 @@
                .unwrap()
                .collect();
 </code></pre></div>
+<h4 id="ajouter-le-tra-aux-rsa-par-exemple"><a href="#ajouter-le-tra-aux-rsa-par-exemple">Ajouter le tra aux rsa par exemple</a></h4>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
+
+<span class="kw">let </span>noyau_p = Noyau {
+    finess: <span class="string">"290000017"</span>,
+    annee: <span class="number">2022</span>,
+    mois: <span class="number">12</span>,
+    path: <span class="string">"~/Documents/data/mco"</span>.to_string(),
+    n_rows: <span class="prelude-val">None</span>,
+};
+<span class="kw">let </span>rsa = noyau_p.parse_rsa().unwrap();
+<span class="kw">let </span>rsa_tra = noyau_p.parse_tra(<span class="string">"tra"</span>, <span class="string">"mco"</span>).unwrap();
+<span class="kw">use </span>polars::prelude::<span class="kw-2">*</span>;
+<span class="kw">let </span>rsa_with_tra = rsa
+    .get(<span class="string">"rsa_rsa"</span>)
+    .expect(<span class="string">"REASON"</span>)
+    .clone()
+    <span class="comment">//.expect("nok")
+    </span>.inner_join(rsa_tra, col(<span class="string">"cle_rsa"</span>), col(<span class="string">"cle_rsa"</span>))
+    .collect();
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, rsa_with_tra)</code></pre></div>
 </div></details></section></div></main></body></html>
