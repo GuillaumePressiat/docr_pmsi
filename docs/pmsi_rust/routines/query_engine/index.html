@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Moteur de requêtage des données PMSI"><title>pmsi_rust::routines::query_engine - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="pmsi_rust" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (684b3553f 2024-06-20)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../pmsi_rust/index.html">pmsi_rust</a><span class="version">0.1.7</span></h2></div><h2 class="location"><a href="#">Module query_engine</a></h2><div class="sidebar-elems"><section><ul class="block"><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></section><h2><a href="../index.html">In pmsi_rust::routines</a></h2></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Module <a href="../../index.html">pmsi_rust</a>::<wbr><a href="../index.html">routines</a>::<wbr><a class="mod" href="#">query_engine</a><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><span class="out-of-band"><button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="moteur-de-requêtage-des-données-pmsi"><a class="doc-anchor" href="#moteur-de-requêtage-des-données-pmsi">§</a>Moteur de requêtage des données PMSI</h2><h3 id="exemple-sur-les-données-rsa"><a class="doc-anchor" href="#exemple-sur-les-données-rsa">§</a>Exemple sur les données RSA</h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code>
+<span class="kw">use </span>pmsi_rust::core::mco::parse_rsa;
+<span class="kw">use </span>pmsi_rust::core::pmsi_frames::PmsiFrame;
+<span class="kw">use </span>pmsi_rust::core::pmsi_frames::PmsiLazyFrame;
+
+<span class="kw">use </span>pmsi_rust::routines::query_engine::read_rsa_query;
+<span class="kw">use </span>pmsi_rust::routines::query_engine::QueryPmsi;
+
+<span class="kw">use </span>glob::glob;
+
+<span class="kw">let </span>rsa = parse_rsa(
+    <span class="string">"~/Documents/data/mco/290000017.2022.12.rsa"</span>.to_string(),
+    <span class="string">"2022"</span>,
+    <span class="prelude-val">None</span>,
+	)
+	.unwrap()
+	.tidy_rsa_diags();
+
+<span class="kw">let </span>rsa_remote = rsa;
+
+<span class="kw">for </span>json_q <span class="kw">in </span>glob(<span class="kw-2">&amp;</span>shellexpand::tilde(<span class="string">"~/Documents/json_tmp/*.json"</span>))
+    .expect(<span class="string">"Failed to read glob pattern"</span>)
+{
+    <span class="kw">let </span>pmsi_q = read_rsa_query(<span class="kw-2">&amp;</span>json_q.unwrap().into_os_string().into_string().unwrap());
+    <span class="kw">let </span>pmsi_rq = pmsi_q.unwrap();
+    <span class="kw">let </span>result = rsa_remote.query_rsa(pmsi_rq.clone());
+    <span class="macro">println!</span>(
+        <span class="string">"{:}"</span>,
+        <span class="macro">format!</span>(
+            <span class="string">"## {thematique} : {nom}"</span>,
+            thematique = pmsi_rq.thematique,
+            nom = pmsi_rq.nom
+        )
+    );
+    <span class="kw">let _ </span>= result.write(<span class="macro">format!</span>(
+        <span class="string">"/Users/guillaumepressiat/Documents/tmp/{abrege}.csv"</span>,
+        abrege = pmsi_rq.abrege
+    ));
+}
+</code></pre></div>
+<div class="example-wrap"><pre class="language-sh"><code>Parsing PMSI du fichier spécifié : ~/Documents/data/mco/290000017.2022.12.rsa
+mco::rsa =&gt; rsa
+mco::rsa_um =&gt; rsa_um
+mco::rsa_actes =&gt; rsa_actes
+
+#### pmsi_rust query engine
+
+## Chir ambu : 55 GM : Adénoïdectomies
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM01.csv
+## Chir ambu : 55 GM : Arthroscopies du genou hors ligamentoplasties
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM02.csv
+## Chir ambu : 55 GM : Chirurgie anale
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM03.csv
+## Chir ambu : 55 GM : Chirurgie du canal carpien et autres libérations nerveuses (MS)
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM04.csv
+## Chir ambu : 55 GM : Chirurgie de la conjonctive (ptérygion)
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM05.csv
+## Chir ambu : 55 GM : Chirurgie de la main pour maladie de Dupuytren
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM06.csv
+## Chir ambu : 55 GM : Chirurgie des bourses
+Écriture de /Users/guillaumepressiat/Documents/tmp/GM07.csv
+## Chir ambu : GHM C : GHM C  (hors CMD 14 et 15)
+Écriture de /Users/guillaumepressiat/Documents/tmp/chir_ambu_ghm_C.csv
+## Chir ambu : GHM C + 7 racines : GHM C  (hors CMD 14 et 15) + 7 racines interventionnelles
+Écriture de /Users/guillaumepressiat/Documents/tmp/chir_ambu_ghm_C_7_racines.csv
+## Cataracte adulte : Test 1
+Écriture de /Users/guillaumepressiat/Documents/tmp/test_1.csv
+## Chirurgie bariatrique : Test 2
+Écriture de /Users/guillaumepressiat/Documents/tmp/test_2.csv
+</code></pre></div></div></details><h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="struct" href="struct.PmsiRsaQuery.html" title="struct pmsi_rust::routines::query_engine::PmsiRsaQuery">PmsiRsaQuery</a></div></li></ul><h2 id="traits" class="section-header">Traits<a href="#traits" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="trait" href="trait.QueryPmsi.html" title="trait pmsi_rust::routines::query_engine::QueryPmsi">QueryPmsi</a></div></li></ul><h2 id="functions" class="section-header">Functions<a href="#functions" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="fn" href="fn.read_rsa_query.html" title="fn pmsi_rust::routines::query_engine::read_rsa_query">read_rsa_query</a></div></li></ul></section></div></main></body></html>
