@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["read_rsa_query"],"struct":["PmsiRsaQuery"],"trait":["QueryPmsi"]};
+window.SIDEBAR_ITEMS = {"fn":["read_rsa_query"],"struct":["PmsiRsaQuery"],"trait":["GrepPmsi","QueryPmsi"]};
