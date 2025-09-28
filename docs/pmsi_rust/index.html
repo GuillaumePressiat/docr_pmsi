@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="pmsi_rust: du PMSi avec Rust"><title>pmsi_rust - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="pmsi_rust" data-themes="" data-resource-suffix="" data-rustdoc-version="1.86.0-nightly (1891c2866 2025-01-04)" data-channel="nightly" data-search-js="search-75f5ac3e.js" data-settings-js="settings-0f613d39.js" ><script src="../static.files/storage-59e33391.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../pmsi_rust/index.html">pmsi_<wbr>rust</a><span class="version">0.1.8</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#pmsi_rust-du-pmsi-avec-rust" title="pmsi_rust: du PMSi avec Rust">pmsi_rust: du PMSi avec Rust</a></li><li><a href="#table-des-matières" title="Table des matières">Table des matières</a><ul><li><a href="#premier-exemple" title="Premier exemple">Premier exemple</a></li><li><a href="#lire-les-rsa" title="Lire les RSA">Lire les RSA</a></li><li><a href="#lire-les-rum" title="Lire les RUM">Lire les RUM</a></li><li><a href="#lire-les-autres-fichiers" title="Lire les autres fichiers">Lire les autres fichiers</a></li><li><a href="#noyau-de-paramètres-pmsi" title="Noyau de paramètres PMSI">Noyau de paramètres PMSI</a></li><li><a href="#définir-un-noyau-de-paramètres" title="Définir un noyau de paramètres">Définir un noyau de paramètres</a></li></ul></li></ul><h3><a href="#modules">Crate Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>pmsi_rust</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"></span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="pmsi_rust-du-pmsi-avec-rust"><a class="doc-anchor" href="#pmsi_rust-du-pmsi-avec-rust">§</a>pmsi_rust: <em><small>du PMSi avec Rust</small></em></h2>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="pmsi_rust: du PMSi avec Rust"><title>pmsi_rust - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-e56847b5.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="pmsi_rust" data-themes="" data-resource-suffix="" data-rustdoc-version="1.92.0-nightly (7ac0330c6 2025-09-25)" data-channel="nightly" data-search-js="search-e256b49e.js" data-stringdex-js="stringdex-061df703.js" data-settings-js="settings-c38705f0.js" ><script src="../static.files/storage-e2aeef58.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-ce535bd0.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-263c88ec.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Crate pmsi_rust</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../pmsi_rust/index.html">pmsi_<wbr>rust</a><span class="version">0.1.10</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#pmsi_rust-du-pmsi-avec-rust" title="pmsi_rust: du PMSi avec Rust">pmsi_rust: du PMSi avec Rust</a></li><li><a href="#table-des-matières" title="Table des matières">Table des matières</a><ul><li><a href="#premier-exemple" title="Premier exemple">Premier exemple</a></li><li><a href="#lire-les-rsa" title="Lire les RSA">Lire les RSA</a></li><li><a href="#lire-les-rum" title="Lire les RUM">Lire les RUM</a></li><li><a href="#lire-les-autres-fichiers" title="Lire les autres fichiers">Lire les autres fichiers</a></li><li><a href="#noyau-de-paramètres-pmsi" title="Noyau de paramètres PMSI">Noyau de paramètres PMSI</a></li><li><a href="#définir-un-noyau-de-paramètres" title="Définir un noyau de paramètres">Définir un noyau de paramètres</a></li></ul></li></ul><h3><a href="#modules">Crate Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>pmsi_<wbr>rust</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"></span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="pmsi_rust-du-pmsi-avec-rust"><a class="doc-anchor" href="#pmsi_rust-du-pmsi-avec-rust">§</a>pmsi_rust: <em><small>du PMSi avec Rust</small></em></h2>
 <p>pmsi_rust est une bibliothèque pour le PMSi en Rust basée sur Polars.
 Elle permet de lire, découper et requêter les fichiers PMSi ainsi que les exporter
 vers des fichiers de formats plus ouverts.</p>
@@ -33,8 +33,7 @@ vers des fichiers de formats plus ouverts.</p>
 
 <span class="kw">let </span>out_json: String = <span class="string">"~/Documents/tmp/290000017.2022.12.ano.json"</span>.to_string();
 <span class="kw">let </span>_export_trace = write_dataframe_to_somefile(ano, out_json);
-</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.ano.parquet
+</code></pre></div><div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.ano.parquet
 Écriture de ~/Documents/tmp/290000017.2022.12.ano.csv
 Écriture de ~/Documents/tmp/290000017.2022.12.ano.json</code></pre></div><h3 id="lire-les-rsa"><a class="doc-anchor" href="#lire-les-rsa">§</a>Lire les RSA</h3><h4 id="partie-fixe-uniquement"><a class="doc-anchor" href="#partie-fixe-uniquement">§</a>Partie fixe uniquement</h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">"~/Documents/data/mco/290000017.2022.12.rsa"</span>;
@@ -46,8 +45,7 @@ vers des fichiers de formats plus ouverts.</p>
                      <span class="string">"rsa"</span>,
                      <span class="string">"mco"</span>,
                      <span class="prelude-val">None</span>,)
-                     .unwrap();</code></pre></div>
-<h4 id="partie-fixe-et-parties-variables"><a class="doc-anchor" href="#partie-fixe-et-parties-variables">§</a>Partie fixe et parties variables</h4>
+                     .unwrap();</code></pre></div><h4 id="partie-fixe-et-parties-variables"><a class="doc-anchor" href="#partie-fixe-et-parties-variables">§</a>Partie fixe et parties variables</h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">"~/Documents/data/mco/290000017.2022.12.rsa"</span>;
 
 <span class="kw">use </span>pmsi_rust::core::mco::parse_rsa;
@@ -56,8 +54,7 @@ vers des fichiers de formats plus ouverts.</p>
                     <span class="string">"2022"</span>,
                     <span class="prelude-val">None</span>,)
                     .unwrap();
-</code></pre></div>
-<h3 id="lire-les-rum"><a class="doc-anchor" href="#lire-les-rum">§</a>Lire les RUM</h3><h4 id="partie-fixe-uniquement-1"><a class="doc-anchor" href="#partie-fixe-uniquement-1">§</a>Partie fixe uniquement</h4>
+</code></pre></div><h3 id="lire-les-rum"><a class="doc-anchor" href="#lire-les-rum">§</a>Lire les RUM</h3><h4 id="partie-fixe-uniquement-1"><a class="doc-anchor" href="#partie-fixe-uniquement-1">§</a>Partie fixe uniquement</h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">"~/Documents/data/mco/290000017.2022.12.rss.ini.txt"</span>;
 
 <span class="kw">use </span>pmsi_rust::core::parse_pmsi;
@@ -67,8 +64,7 @@ vers des fichiers de formats plus ouverts.</p>
                      <span class="string">"rss.ini.txt"</span>,
                      <span class="string">"mco"</span>,
                      <span class="prelude-val">None</span>,)
-                     .unwrap();</code></pre></div>
-<h4 id="partie-fixe-et-parties-variables-1"><a class="doc-anchor" href="#partie-fixe-et-parties-variables-1">§</a>Partie fixe et parties variables</h4>
+                     .unwrap();</code></pre></div><h4 id="partie-fixe-et-parties-variables-1"><a class="doc-anchor" href="#partie-fixe-et-parties-variables-1">§</a>Partie fixe et parties variables</h4>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">"~/Documents/data/mco/290000017.2022.12.rss.ini.txt"</span>;
 
 <span class="kw">use </span>pmsi_rust::core::mco::parse_rum;
@@ -77,8 +73,7 @@ vers des fichiers de formats plus ouverts.</p>
                      <span class="string">"2022"</span>,
                      <span class="prelude-val">None</span>,)
                      .unwrap();
-</code></pre></div>
-<h3 id="lire-les-autres-fichiers"><a class="doc-anchor" href="#lire-les-autres-fichiers">§</a>Lire les autres fichiers</h3>
+</code></pre></div><h3 id="lire-les-autres-fichiers"><a class="doc-anchor" href="#lire-les-autres-fichiers">§</a>Lire les autres fichiers</h3>
 <p>Il y a une seule fonction pour tous les autres fichiers avec seulement une partie fixe.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>file_to_read = <span class="string">"~/Documents/data/mco/290000017.2022.12.dmi.txt"</span>;
@@ -129,8 +124,7 @@ et les redondances d’appels à des objets toujours identiques en réalité</p>
     n_rows: <span class="prelude-val">None</span>,
 };
 
-<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>&quot;~/Documents/data/mco/290000017.2022.12.rsa&quot;</code></pre></div>
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));</code></pre></div><div class="example-wrap"><pre class="language-bash"><code>&quot;~/Documents/data/mco/290000017.2022.12.rsa&quot;</code></pre></div>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
 
 <span class="kw">let </span><span class="kw-2">mut </span>noyau_p = Noyau {
@@ -144,8 +138,7 @@ et les redondances d’appels à des objets toujours identiques en réalité</p>
 noyau_p.annee = <span class="number">2021</span>;
 noyau_p.mois = <span class="number">11</span>;
 
-<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>&quot;~/Documents/data/mco/290000017.2021.11.rsa&quot;</code></pre></div><h4 id="lire-un-fichier-pmsi-dun-noyau"><a class="doc-anchor" href="#lire-un-fichier-pmsi-dun-noyau">§</a>Lire un fichier PMSi d’un noyau</h4>
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, noyau_p.create_filepath(<span class="kw-2">&amp;</span><span class="string">"rsa"</span>.to_string()));</code></pre></div><div class="example-wrap"><pre class="language-bash"><code>&quot;~/Documents/data/mco/290000017.2021.11.rsa&quot;</code></pre></div><h4 id="lire-un-fichier-pmsi-dun-noyau"><a class="doc-anchor" href="#lire-un-fichier-pmsi-dun-noyau">§</a>Lire un fichier PMSi d’un noyau</h4>
 <p>Exemple</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
@@ -162,8 +155,7 @@ noyau_p.mois = <span class="number">11</span>;
  .parse_pmsi(<span class="string">"ano"</span>, <span class="string">"mco"</span>)
  .unwrap();
 
-<span class="macro">println!</span>(<span class="string">"{:?}"</span>, ano.collect());</code></pre></div>
-<h4 id="lire-un-fichier-rsa-dun-noyau"><a class="doc-anchor" href="#lire-un-fichier-rsa-dun-noyau">§</a>Lire un fichier RSA d’un noyau</h4>
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, ano.collect());</code></pre></div><h4 id="lire-un-fichier-rsa-dun-noyau"><a class="doc-anchor" href="#lire-un-fichier-rsa-dun-noyau">§</a>Lire un fichier RSA d’un noyau</h4>
 <p>Exemple</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
@@ -179,8 +171,7 @@ noyau_p.mois = <span class="number">11</span>;
 
 <span class="kw">let </span>rsa = noyau_p.parse_rsa().unwrap();
 
-<span class="macro">println!</span>(<span class="string">"{:?}"</span>, hashmap_collect(rsa));</code></pre></div>
-<h4 id="lire-tous-les-fichiers-dun-noyau"><a class="doc-anchor" href="#lire-tous-les-fichiers-dun-noyau">§</a>Lire tous les fichiers d’un noyau</h4>
+<span class="macro">println!</span>(<span class="string">"{:?}"</span>, hashmap_collect(rsa));</code></pre></div><h4 id="lire-tous-les-fichiers-dun-noyau"><a class="doc-anchor" href="#lire-tous-les-fichiers-dun-noyau">§</a>Lire tous les fichiers d’un noyau</h4>
 <p>L’articulation autour d’un noyau de paramètres permet de traiter tous les fichiers d’une passe.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code> <span class="kw">use </span>pmsi_rust::core::noyau_pmsi::Noyau;
@@ -227,8 +218,7 @@ noyau_p.mois = <span class="number">11</span>;
  <span class="macro">println!</span>(
      <span class="string">"{}"</span>,
      serde_json::to_string_pretty(<span class="kw-2">&amp;</span>_export_tra.unwrap()).unwrap()
- );</code></pre></div>
-<div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.rum_dmi.parquet
+ );</code></pre></div><div class="example-wrap"><pre class="language-bash"><code>Écriture de ~/Documents/tmp/290000017.2022.12.rum_dmi.parquet
 Écriture de ~/Documents/tmp/290000017.2022.12.rum_rum.parquet
 Écriture de ~/Documents/tmp/290000017.2022.12.rsa_medatu.parquet
 Écriture de ~/Documents/tmp/290000017.2022.12.rsa_das.parquet
@@ -246,4 +236,4 @@ noyau_p.mois = <span class="number">11</span>;
 Écriture de ~/Documents/tmp/290000017.2022.12.rsa_pie.parquet
 Écriture de ~/Documents/tmp/290000017.2022.12.rsa_rsa.parquet
 Écriture de ~/Documents/tmp/290000017.2022.12.rsa_um.parquet
-Écriture de ~/Documents/tmp/290000017.2022.12.tra.parquet</code></pre></div></div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="mod" href="cli/index.html" title="mod pmsi_rust::cli">cli</a></div><div class="desc docblock-short">pmsi_rust en ligne de commande</div></li><li><div class="item-name"><a class="mod" href="core/index.html" title="mod pmsi_rust::core">core</a></div><div class="desc docblock-short">Cœur de pmsi_rust</div></li><li><div class="item-name"><a class="mod" href="routines/index.html" title="mod pmsi_rust::routines">routines</a></div><div class="desc docblock-short">Dévelopements annexes sur les objets PMSi</div></li></ul></section></div></main></body></html>
+Écriture de ~/Documents/tmp/290000017.2022.12.tra.parquet</code></pre></div></div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><dl class="item-table"><dt><a class="mod" href="cli/index.html" title="mod pmsi_rust::cli">cli</a></dt><dd>pmsi_rust en ligne de commande</dd><dt><a class="mod" href="core/index.html" title="mod pmsi_rust::core">core</a></dt><dd>Cœur de pmsi_rust</dd><dt><a class="mod" href="routines/index.html" title="mod pmsi_rust::routines">routines</a></dt><dd>Dévelopements annexes sur les objets PMSi</dd></dl></section></div></main></body></html>

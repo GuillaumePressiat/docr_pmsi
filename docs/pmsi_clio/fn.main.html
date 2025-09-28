@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="pmsi-clio CLI ; en ligne de commande"><title>main in pmsi_clio - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-e56847b5.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="pmsi_clio" data-themes="" data-resource-suffix="" data-rustdoc-version="1.92.0-nightly (7ac0330c6 2025-09-25)" data-channel="nightly" data-search-js="search-e256b49e.js" data-stringdex-js="stringdex-061df703.js" data-settings-js="settings-c38705f0.js" ><script src="../static.files/storage-e2aeef58.js"></script><script defer src="sidebar-items.js"></script><script defer src="../static.files/main-ce535bd0.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-263c88ec.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">main</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../pmsi_clio/index.html">pmsi_<wbr>clio</a><span class="version">0.1.10</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">main</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#pmsi-clio-cli--en-ligne-de-commande" title="pmsi-clio CLI ; en ligne de commande">pmsi-clio CLI ; en ligne de commande</a><ul><li><a href="#paramètres-par-défaut" title="Paramètres par défaut">Paramètres par défaut</a></li><li><a href="#lire-les-rsa-2012" title="lire les RSA 2012">lire les RSA 2012</a></li><li><a href="#accéder-à-laide" title="Accéder à l’aide">Accéder à l’aide</a></li></ul></li><li><a href="#exemple-dutilisation-plus-complet" title="Exemple d’utilisation plus complet">Exemple d’utilisation plus complet</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="index.html">In crate pmsi_<wbr>clio</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="index.html">pmsi_clio</a></div><h1>Function <span class="fn">main</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/pmsi_clio/main.rs.html#107-127">Source</a> </span></div><pre class="rust item-decl"><code>pub fn main()</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h3 id="pmsi-clio-cli--en-ligne-de-commande"><a class="doc-anchor" href="#pmsi-clio-cli--en-ligne-de-commande">§</a>pmsi-clio CLI ; en ligne de commande</h3><h4 id="paramètres-par-défaut"><a class="doc-anchor" href="#paramètres-par-défaut">§</a>Paramètres par défaut</h4><div class="example-wrap"><pre class="language-bash"><code>./target/release/pmsi-clio</code></pre></div><h4 id="lire-les-rsa-2012"><a class="doc-anchor" href="#lire-les-rsa-2012">§</a>lire les RSA 2012</h4>
+<p>Découper la partie fixe des RSA 2012 et les écrire dans un fichier parquet</p>
+<div class="example-wrap"><pre class="language-bash"><code>./target/release/pmsi-clio  \
+                    -a 12 -e rsa -f ~/Documents/data/mco/290000017.2012.12.rsa \
+                    -o ~/Documents/data/parquet/rust/rsa/290000017.2012.12.rsa.parquet</code></pre></div><h4 id="accéder-à-laide"><a class="doc-anchor" href="#accéder-à-laide">§</a>Accéder à l’aide</h4><div class="example-wrap"><pre class="language-bash"><code>./target/release/pmsi-clio -h</code></pre></div><div class="example-wrap"><pre class="language-bash"><code>Requêteur rust PMSI : pour tester rust
+
+Usage: pmsi-clio [OPTIONS]
+
+Options:
+  -f, --file &lt;file&gt;             |-- un fichier .* PMSi
+  -a, --annee &lt;annee&gt;           |-- Année du fichier PMSI (séquentielle = format du rsa), 22 par défaut
+  -e, --extension &lt;extension&gt;   |-- Extension * du fichier PMSI, rsa par défaut [rsa, ano, med, rss.ini.txt, ano.txt, med.txt]
+  -o, --output &lt;output&gt;         |---- Chemin de sortie d&#39;un fichier avec extension csv ou parquet
+      --ccam &lt;pattern_ccam&gt;     |------ requêteur rsa/rss : Pattern regex CCAM
+      --cim &lt;pattern_cim&gt;       |------ requêteur rsa/rss : Pattern regex CIM
+      --ghm &lt;pattern_ghm&gt;       |------ requêteur rsa/rss : Pattern regex GHM
+      --grep_rss &lt;pattern_rss&gt;  |------ requêteur rsa/rss : Pattern regex ligne entière du RSA ou du RSS
+  -h, --help                    Print help
+  -V, --version                 Print version</code></pre></div><h3 id="exemple-dutilisation-plus-complet"><a class="doc-anchor" href="#exemple-dutilisation-plus-complet">§</a>Exemple d’utilisation plus complet</h3>
+<p>on découpe les RSA partie fixe de 2012 à 2022, pour ensuite les requêter en fichier parquet avec duckdb (SQL)</p>
+<div class="example-wrap"><pre class="language-bash"><code>for i in {12..22};
+do ./target/release/pmsi-clio  -a $i -e rsa \
+   -f ~/Documents/data/mco/290000017.20$i.12.rsa \
+   -o ~/Documents/data/parquet/rust/rsa/290000017.20$i.12.rsa.parquet;
+done;</code></pre></div>
+<p>Puis on requête les dp des RSA Z51% dans duckdb:</p>
+<div class="example-wrap"><pre class="language-bash"><code>gp@macbook pmsi_rust % duckdb
+v0.8.1 6536a77232
+Enter &quot;.help&quot; for usage hints.
+Connected to a transient in-memory database.
+Use &quot;.open FILENAME&quot; to reopen on a persistent database.
+D .timer on
+D select ansor, count(*)
+&gt; from read_parquet(&#39;~/Documents/data/parquet/rust/rsa/*.parquet&#39;, union_by_name = True)
+&gt; where dp like &#39;Z51%&#39;
+&gt; group by ansor
+&gt; order by ansor;
+┌─────────┬──────────────┐
+│  ansor  │ count_star() │
+│ varchar │    int64     │
+├─────────┼──────────────┤
+│ 2012    │        37557 │
+│ 2013    │        38765 │
+│ 2014    │        40380 │
+│ 2016    │        45430 │
+│ 2017    │        49877 │
+│ 2018    │        50661 │
+│ 2019    │        51765 │
+│ 2020    │        53895 │
+│ 2021    │        57361 │
+│ 2022    │        59356 │
+├─────────┴──────────────┤
+│ 10 rows      2 columns │
+└────────────────────────┘
+Run Time (s): real 0.023 user 0.114570 sys 0.008565</code></pre></div><div class="example-wrap"><pre class="language-bash"><code>D select count(*) from read_parquet(&#39;~/Documents/data/parquet/rust/rsa/*.parquet&#39;, union_by_name = True);
+┌──────────────┐
+│ count_star() │
+│    int64     │
+├──────────────┤
+│      1347388 │
+└──────────────┘
+Run Time (s): real 0.008 user 0.007474 sys 0.003167</code></pre></div></div></details></section></div></main></body></html>
